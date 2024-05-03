@@ -56,9 +56,9 @@ const people = [{
           <h1>Welcome to Nuxt Todo App</h1>
         </div>
       </template>
-      <div class="flex justify-between pb-8">
-        <div class="w-9/12">
-          <UInput v-model="value" placeholder="Write your tasks" />
+      <div class="flex justify-between pb-8 gap-2">
+        <div class="w-full">
+          <UInput v-model="value" placeholder="Write your tasks" size="lg" />
         </div>
         <UButton>Submit</UButton>
       </div>

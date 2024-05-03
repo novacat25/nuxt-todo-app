@@ -38,7 +38,7 @@ const people = [{
     <UCard class="mt-10">
       <template #header>
         <div class="flex justify-between">
-          <h1>Welcome to Nuxt Todo App</h1>
+          <h1>Welcome to NovaCat's Nuxt Todo App</h1>
         </div>
       </template>
       <div class="flex justify-between pb-8 gap-2">

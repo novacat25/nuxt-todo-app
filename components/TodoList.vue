@@ -6,28 +6,28 @@ const columns = [{
     key: 'task',
     label: 'Task'
 }, {
+    key: 'date',
+    label: 'Register Date'
+}, {
     key: 'status',
     label: 'Status'
-}, {
-    key: 'manage',
-    label: 'Manage'
 }]
 
 const people = [{
     id: 1,
     task: 'Study Nuxt 3',
-    status: 'Not Finished',
-    manage: 'Member'
+    date: '2024-05-03',
+    status: 'Not Finished'
 }, {
     id: 2,
     task: 'Buy some snacks',
-    status: 'Finished',
-    manage: 'Admin'
+    date: '2024-05-03',
+    status: 'Finished'
 }, {
     id: 3,
     task: 'Cook dinner',
-    status: 'Not Finished',
-    manage: 'Member'
+    date: '2024-05-09',
+    status: 'Not Finished'
 },]
 </script>
 

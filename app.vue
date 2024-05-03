@@ -4,47 +4,32 @@ const columns = [{
   key: 'id',
   label: 'ID'
 }, {
-  key: 'name',
+  key: 'task',
   label: 'Task'
 }, {
-  key: 'title',
+  key: 'status',
   label: 'Status'
 }, {
-  key: 'role',
-  label: 'Control'
+  key: 'manage',
+  label: 'Manage'
 }]
 
 const people = [{
   id: 1,
-  name: 'Lindsay Walton',
-  title: 'Front-end Developer',
-  role: 'Member'
+  task: 'Study Nuxt 3',
+  status: 'Not Finished',
+  manage: 'Member'
 }, {
   id: 2,
-  name: 'Courtney Henry',
-  title: 'Designer',
-  role: 'Admin'
+  task: 'Buy some snacks',
+  status: 'Finished',
+  manage: 'Admin'
 }, {
   id: 3,
-  name: 'Tom Cook',
-  title: 'Director of Product',
-  role: 'Member'
-}, {
-  id: 4,
-  name: 'Whitney Francis',
-  title: 'Copywriter',
-  role: 'Admin'
-}, {
-  id: 5,
-  name: 'Leonard Krasner',
-  title: 'Senior Designer',
-  role: 'Owner'
-}, {
-  id: 6,
-  name: 'Floyd Miles',
-  title: 'Principal Designer',
-  role: 'Member'
-}]
+  task: 'Cook dinner',
+  status: 'Not Finished',
+  manage: 'Member'
+},]
 </script>
 
 
@@ -58,7 +43,7 @@ const people = [{
       </template>
       <div class="flex justify-between pb-8 gap-2">
         <div class="w-full">
-          <UInput v-model="value" placeholder="Write your tasks" size="lg" />
+          <UInput v-model="value" placeholder="Write your statuss" size="lg" />
         </div>
         <UButton>Submit</UButton>
       </div>

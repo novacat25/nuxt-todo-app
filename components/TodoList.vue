@@ -11,6 +11,8 @@ const columns = [{
 }, {
     key: 'status',
     label: 'Status'
+}, {
+    key: 'actions'
 }]
 
 const people = [{
@@ -32,8 +34,12 @@ const people = [{
 </script>
 
 <template>
-    <div class="pb-8">
-        Todo Lists
-        <UTable :columns="columns" :rows="people" />
-    </div>
+    <UTable :columns="columns" :rows="people">
+        <template #actions-data="">
+            <div class="flex gap-2">
+                <UButton color="blue">DONE</UButton>
+                <UButton color="red">DELETE</UButton>
+            </div>
+        </template>
+    </UTable>
 </template>

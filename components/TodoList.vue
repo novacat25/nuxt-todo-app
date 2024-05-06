@@ -15,7 +15,7 @@ const columns = [{
     key: 'actions'
 }]
 
-const people = [{
+const tasks = [{
     id: 1,
     task: 'Study Nuxt 3',
     date: '2024-05-03',
@@ -34,7 +34,7 @@ const people = [{
 </script>
 
 <template>
-    <UTable :columns="columns" :rows="people">
+    <UTable :columns="columns" :rows="tasks">
         <template #actions-data="">
             <div class="flex gap-2">
                 <UButton color="blue">DONE</UButton>

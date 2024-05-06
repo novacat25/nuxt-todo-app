@@ -1,10 +1,12 @@
 <script setup lang="ts">
 const columns = [{
     key: 'id',
-    label: 'ID'
+    label: 'ID',
+    class: 'w-2'
 }, {
     key: 'task',
-    label: 'Task'
+    label: 'Task',
+    class: 'w-1/2'
 }, {
     key: 'date',
     label: 'Register Date'
@@ -34,9 +36,9 @@ const tasks = [{
 </script>
 
 <template>
-    <UTable :columns="columns" :rows="tasks">
+    <UTable :columns="columns" :rows="tasks" class="px-4">
         <template #actions-data="">
-            <div class="flex gap-2">
+            <div class="flex gap-2 justify-end">
                 <UButton color="blue">DONE</UButton>
                 <UButton color="red">DELETE</UButton>
             </div>

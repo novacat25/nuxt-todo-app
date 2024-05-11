@@ -1,5 +1,8 @@
 <script setup lang="ts">
     const value = ref('')
+    const handleClick = ( value: String ): void => {
+      console.log("the inputed value is", value)
+    }
 </script>
 
 <template>
@@ -7,7 +10,7 @@
         <div class="w-full">
           <UInput v-model="value" placeholder="Write your tasks" size="lg" />
         </div>
-        <UButton>Submit</UButton>
+        <UButton @click="handleClick(value)">Submit</UButton>
       </div>
 </template>
 

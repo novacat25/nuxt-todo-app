@@ -2,6 +2,11 @@
     const inputValue = ref<string>('')
     const emits = defineEmits<{(e: 'add',task?: string): void}>()
     const handleClick = ( value?: string ): void => {
+      if(value === "") {
+        alert("Please input the value.")
+        return
+      }
+
       emits('add',value)
       inputValue.value = ""
     }

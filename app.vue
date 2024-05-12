@@ -1,11 +1,19 @@
+<script setup lang="ts">
+  const mission = ref('')
+
+  const handleClick = (value?: string) => {
+    mission.value = value ?? ''
+  }
+</script>
+
 <template>
   <UContainer>
     <UCard class="mt-10">
         <template #header>
           <Header />
         </template>
-        <InputTask />
-        <TodoList />
+        <InputTask @add="handleClick" />
+        <TodoList :mission />
         <Footer />
     </UCard>
   </UContainer>

@@ -3,6 +3,7 @@
     const emits = defineEmits<{(e: 'add',task?: string): void}>()
     const handleClick = ( value?: string ): void => {
       emits('add',value)
+      inputValue.value = ""
     }
 </script>
 

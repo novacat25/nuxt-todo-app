@@ -1,4 +1,5 @@
 <script setup lang="ts">
+defineProps(["mission"])
 const columns = [{
     key: 'id',
     label: 'ID',
@@ -36,6 +37,7 @@ const tasks = [{
 </script>
 
 <template>
+    {{ mission }}
     <UTable :columns="columns" :rows="tasks" class="px-4">
         <template #actions-data="">
             <div class="flex gap-2 justify-end">

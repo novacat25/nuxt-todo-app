@@ -1,16 +1,18 @@
 <script setup lang="ts">
-    const value = ref('')
-    const handleClick = ( value: String ): void => {
+    const inputValue = ref<string>('')
+    const emits = defineEmits<{(e: 'add',task?: string): void}>()
+    const handleClick = ( value?: string ): void => {
       console.log("the inputed value is", value)
+      emits('add',value)
     }
 </script>
 
 <template>
     <div class="flex justify-between pb-8 gap-2 px-5">
         <div class="w-full">
-          <UInput v-model="value" placeholder="Write your tasks" size="lg" />
+          <UInput v-model="inputValue" placeholder="Write your tasks" size="lg" />
         </div>
-        <UButton @click="handleClick(value)">Submit</UButton>
+        <UButton @click="handleClick(inputValue)">Submit</UButton>
       </div>
 </template>
 

@@ -34,15 +34,22 @@ const tasks = [{
     date: '2024-05-09',
     status: 'Not Finished'
 },]
+
+const handleDoneClick = (value?: string) => {
+    console.log("DONE", value)
+}
+const handleDeleteClick = (value?: string) => {
+    console.log("DELETE", value)
+}
 </script>
 
 <template>
     {{ mission }}
     <UTable :columns="columns" :rows="tasks" class="px-4">
-        <template #actions-data="">
+        <template #actions-data="{ row }">
             <div class="flex gap-2 justify-end">
-                <UButton color="blue">DONE</UButton>
-                <UButton color="red">DELETE</UButton>
+                <UButton color="blue" @click="handleDoneClick(row)">DONE</UButton>
+                <UButton color="red" @click="handleDeleteClick(row)">DELETE</UButton>
             </div>
         </template>
     </UTable>

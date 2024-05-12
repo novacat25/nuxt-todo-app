@@ -35,10 +35,10 @@ const tasks = [{
     status: 'Not Finished'
 },]
 
-const handleDoneClick = (value?: string) => {
+const handleDoneClick = (value?: Object) => {
     console.log("DONE", value)
 }
-const handleDeleteClick = (value?: string) => {
+const handleDeleteClick = (value?: Object) => {
     console.log("DELETE", value)
 }
 </script>

@@ -3,7 +3,6 @@
 
   const handleClick = (value?: string) => {
     mission.value = value ?? ''
-    console.log("mission", mission.value)
   }
 </script>
 

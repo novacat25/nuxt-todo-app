@@ -2,7 +2,6 @@
     const inputValue = ref<string>('')
     const emits = defineEmits<{(e: 'add',task?: string): void}>()
     const handleClick = ( value?: string ): void => {
-      console.log("the inputed value is", value)
       emits('add',value)
     }
 </script>

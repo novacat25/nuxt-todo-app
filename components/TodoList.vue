@@ -7,13 +7,19 @@ const columns = [{
 }, {
     key: 'task',
     label: 'Task',
-    class: 'w-1/2'
+    class: 'w-1/3'
 }, {
-    key: 'date',
-    label: 'Register Date'
+    key: 'created_at',
+    label: 'Registered Date',
+    class: 'w-1/6'
+}, {
+    key: 'updated_at',
+    label: 'Modified Date',
+    class: 'w-1/6'
 }, {
     key: 'status',
-    label: 'Status'
+    label: 'Status',
+    class: 'w-1/6'
 }, {
     key: 'actions'
 }]
@@ -21,17 +27,20 @@ const columns = [{
 const tasks = [{
     id: 1,
     task: 'Study Nuxt 3',
-    date: '2024-05-03',
+    created_at: '2024-05-03 09:30:00',
+    updated_at: '2024-09-17 00:00:00',
     status: 'Not Finished'
 }, {
     id: 2,
     task: 'Buy some snacks',
-    date: '2024-05-03',
+    created_at: '2024-05-03 09:30:00',
+    updated_at: '2024-09-17 00:00:00',
     status: 'Finished'
 }, {
     id: 3,
     task: 'Cook dinner',
-    date: '2024-05-09',
+    created_at: '2024-05-09 00:00:00',
+    updated_at: '2024-09-17 00:00:00',
     status: 'Not Finished'
 },]
 

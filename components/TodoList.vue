@@ -7,7 +7,7 @@ const columns = [{
 }, {
     key: 'task',
     label: 'Task',
-    class: 'w-1/3'
+    class: 'w-1/2'
 }, {
     key: 'created_at',
     label: 'Registered Date',

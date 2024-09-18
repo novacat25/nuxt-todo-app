@@ -1,3 +1,12 @@
+<template>
+    <div class="flex justify-center pb-8 gap-2 px-6">
+        <div class="w-full">
+          <UInput v-model="inputValue" placeholder="Write your tasks" size="lg" />
+        </div>
+        <UButton @click="handleClick(inputValue)">Submit</UButton>
+      </div>
+</template>
+
 <script setup lang="ts">
     const inputValue = ref<string>('')
     const emits = defineEmits<{(e: 'add',task?: string): void}>()
@@ -11,13 +20,3 @@
       inputValue.value = ""
     }
 </script>
-
-<template>
-    <div class="flex justify-center pb-8 gap-2 px-6">
-        <div class="w-full">
-          <UInput v-model="inputValue" placeholder="Write your tasks" size="lg" />
-        </div>
-        <UButton @click="handleClick(inputValue)">Submit</UButton>
-      </div>
-</template>
-

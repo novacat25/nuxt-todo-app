@@ -1,5 +1,6 @@
 <script setup lang="ts">
-defineProps(["mission"])
+defineProps(["mission", "tasks"])
+
 const columns = [{
     key: 'id',
     label: 'ID',
@@ -17,23 +18,6 @@ const columns = [{
 }, {
     key: 'actions'
 }]
-
-const tasks = [{
-    id: 1,
-    task: 'Study Nuxt 3',
-    date: '2024-05-03',
-    status: 'Not Finished'
-}, {
-    id: 2,
-    task: 'Buy some snacks',
-    date: '2024-05-03',
-    status: 'Finished'
-}, {
-    id: 3,
-    task: 'Cook dinner',
-    date: '2024-05-09',
-    status: 'Not Finished'
-},]
 
 const handleDoneClick = (value?: Object) => {
     console.log("DONE", value)

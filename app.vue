@@ -1,8 +1,34 @@
 <script setup lang="ts">
   const mission = ref('')
 
-  const handleClick = (value?: string) => {
-    mission.value = value ?? ''
+  const tasks = ref([{
+    id: 1,
+    task: 'Study Nuxt 3',
+    date: '2024-05-03',
+    status: 'Not Finished'
+}, {
+    id: 2,
+    task: 'Buy some snacks',
+    date: '2024-05-03',
+    status: 'Finished'
+}, {
+    id: 3,
+    task: 'Cook dinner',
+    date: '2024-05-09',
+    status: 'Not Finished'
+},])
+
+  const handleInputTask = (value: string) => {
+    const NEW_ID_NUM = tasks.value.length
+    const newItem = 
+    {
+      id: NEW_ID_NUM + 1,
+      task: value,
+      date: '2025-02-22',
+      status: 'Not Finished'
+    }
+
+    tasks.value.push(newItem)
   }
 </script>
 
@@ -12,8 +38,8 @@
         <template #header>
           <Header />
         </template>
-        <InputTask @add="handleClick" />
-        <TodoList :mission />
+        <InputTask @add="handleInputTask" />
+        <TodoList :tasks :mission />
         <Footer />
     </UCard>
   </UContainer>

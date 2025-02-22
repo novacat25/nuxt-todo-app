@@ -1,7 +1,7 @@
 <script setup lang="ts">
     const inputValue = ref<string>('')
-    const emits = defineEmits<{(e: 'add',task?: string): void}>()
-    const handleClick = ( value?: string ): void => {
+    const emits = defineEmits<{(e: 'add',task: string): void}>()
+    const handleInputTask = ( value: string ): void => {
       if(value === "") {
         alert("Please input the value.")
         return
@@ -17,7 +17,7 @@
         <div class="w-full">
           <UInput v-model="inputValue" placeholder="Write your tasks" size="lg" />
         </div>
-        <UButton @click="handleClick(inputValue)">Submit</UButton>
+        <UButton @click="handleInputTask(inputValue)">Submit</UButton>
       </div>
 </template>
 

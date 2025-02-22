@@ -1,4 +1,11 @@
 <script setup lang="ts">
+  useHead({
+    title: 'NovaCat\'s Todo App',
+    meta: [
+      { name: 'description', content: 'To write, and manage tasks. This app is built by Nuxt 3 and Vue.js.' }
+    ]
+  })
+
   const mission = ref('')
 
   const tasks = ref([{

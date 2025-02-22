@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Task } from '~/types/task'
+
 defineProps(["mission", "tasks"])
 
 const columns = [{
@@ -19,11 +21,11 @@ const columns = [{
     key: 'actions'
 }]
 
-const handleDoneClick = (value?: Object) => {
-    console.log("DONE", value)
+const handleDoneClick = (task: Task) => {
+   task.status = "Finished"
 }
-const handleDeleteClick = (value?: Object) => {
-    console.log("DELETE", value)
+const handleDeleteClick = (task: Task) => {
+    console.log("DELETE", task)
 }
 </script>
 

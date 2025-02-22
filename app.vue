@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Task } from './types/task'
+
   useHead({
     title: 'NovaCat\'s Todo App',
     meta: [
@@ -8,7 +10,7 @@
 
   const mission = ref('')
 
-  const tasks = ref([{
+  const tasks = ref<Task[]>([{
     id: 1,
     task: 'Study Nuxt 3',
     date: '2024-05-03',

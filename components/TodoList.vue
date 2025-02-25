@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { Task } from '~/types/task'
-
-defineProps(["mission", "tasks"])
+defineProps(["mission", "todos"])
 
 const columns = [{
     key: 'id',
@@ -24,14 +23,16 @@ const columns = [{
 const handleDoneClick = (task: Task) => {
    task.status = "Finished"
 }
+
 const handleDeleteClick = (task: Task) => {
-    console.log("DELETE", task)
+    console.log(task)
 }
+
 </script>
 
 <template>
     {{ mission }}
-    <UTable :columns="columns" :rows="tasks" class="px-4">
+    <UTable :columns="columns" :rows="todos" class="px-4">
         <template #actions-data="{ row }">
             <div class="flex gap-2 justify-end">
                 <!-- TODO: change 'Not Finished' to 'false' -->

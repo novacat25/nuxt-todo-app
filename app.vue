@@ -10,7 +10,7 @@ import type { Task } from './types/task'
 
   const mission = ref('')
 
-  const tasks = ref<Task[]>([{
+  const todos = ref<Task[]>([{
     id: 1,
     task: 'Study Nuxt 3',
     date: '2024-05-03',
@@ -28,7 +28,7 @@ import type { Task } from './types/task'
 },])
 
   const handleInputTask = (value: string) => {
-    const NEW_ID_NUM = tasks.value.length
+    const NEW_ID_NUM = todos.value.length
     const newItem = 
     {
       id: NEW_ID_NUM + 1,
@@ -37,7 +37,11 @@ import type { Task } from './types/task'
       status: 'Not Finished'
     }
 
-    tasks.value.push(newItem)
+    todos.value.push(newItem)
+  }
+
+  const handeDeleteTask = () => {
+    console.log("test")
   }
 </script>
 
@@ -48,7 +52,7 @@ import type { Task } from './types/task'
           <Header />
         </template>
         <InputTask @add="handleInputTask" />
-        <TodoList :tasks :mission />
+        <TodoList :todos :mission />
         <Footer />
     </UCard>
   </UContainer>

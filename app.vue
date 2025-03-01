@@ -27,16 +27,25 @@ const initialDataFetch = () => {
 
 initialDataFetch()
 
+const generateTaskID = ():number => {
+  let TEMP_TASK_ID = 1
+  todos.value.forEach((todo) => {
+    TEMP_TASK_ID = Math.max(TEMP_TASK_ID, todo.id)
+  })
+  return TEMP_TASK_ID
+}
+
+
 //read at first, don't update dynamically
-let NEW_ID_NUM = todos.value.length
+let NEW_TASK_ID = generateTaskID()
 
 const handleInputTask = (value: string) => {
-  NEW_ID_NUM += 1
+  NEW_TASK_ID += 1
   const currentDate = new Date().toISOString().split('T')[0]
 
   const newItem =
   {
-    id: NEW_ID_NUM,
+    id: NEW_TASK_ID,
     task: value,
     date: currentDate,
     status: 'Not Finished'
@@ -44,8 +53,7 @@ const handleInputTask = (value: string) => {
   
   todos.value.push(newItem)
 
-  const serialisedArray = JSON.stringify(todos.value)
-  localStorage.setItem("todo", serialisedArray)
+  refreshTaskStatus()
 }
 
 const refreshTaskStatus = () => {

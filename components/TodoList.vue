@@ -1,5 +1,7 @@
 <script setup lang="ts">
-defineProps(["mission", "tasks"])
+import type { Task } from '~/types/task'
+const emits = defineEmits<{ (e: 'delete', task: Task): void }>()
+defineProps(["mission", "todos"])
 
 const columns = [{
     key: 'id',
@@ -19,17 +21,19 @@ const columns = [{
     key: 'actions'
 }]
 
-const handleDoneClick = (value?: Object) => {
-    console.log("DONE", value)
+const handleDoneClick = (task: Task) => {
+   task.status = "Finished"
 }
-const handleDeleteClick = (value?: Object) => {
-    console.log("DELETE", value)
+
+const handleDeleteClick = (task: Task) => {
+    emits('delete',task)
 }
+
 </script>
 
 <template>
     {{ mission }}
-    <UTable :columns="columns" :rows="tasks" class="px-4">
+    <UTable :columns="columns" :rows="todos" class="px-4">
         <template #actions-data="{ row }">
             <div class="flex gap-2 justify-end">
                 <!-- TODO: change 'Not Finished' to 'false' -->

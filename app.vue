@@ -10,22 +10,22 @@ useHead({
 
 const mission = ref('')
 
-const todos = ref<Task[]>([{
-  id: 1,
-  task: 'Study Nuxt 3',
-  date: '2024-05-03',
-  status: 'Not Finished'
-}, {
-  id: 2,
-  task: 'Buy some snacks',
-  date: '2024-05-03',
-  status: 'Finished'
-}, {
-  id: 3,
-  task: 'Cook dinner',
-  date: '2024-05-09',
-  status: 'Not Finished'
-},])
+const todos = ref<Task[]>([])
+
+console.log("todos", todos.value)
+
+const initialDataFetch = () => {
+  if(process.client) {
+    const fetchFromLocalStorage = localStorage.getItem("todo")
+    
+    if(fetchFromLocalStorage) {
+      const fetchedToDo:Task[] = JSON.parse(fetchFromLocalStorage)
+      todos.value = fetchedToDo
+    }
+  }
+}
+
+initialDataFetch()
 
 //read at first, don't update dynamically
 let NEW_ID_NUM = todos.value.length
@@ -33,6 +33,7 @@ let NEW_ID_NUM = todos.value.length
 const handleInputTask = (value: string) => {
   NEW_ID_NUM += 1
   const currentDate = new Date().toISOString().split('T')[0]
+
   const newItem =
   {
     id: NEW_ID_NUM,
@@ -40,13 +41,19 @@ const handleInputTask = (value: string) => {
     date: currentDate,
     status: 'Not Finished'
   }
-
+  
   todos.value.push(newItem)
+
+  const serialisedArray = JSON.stringify(todos.value)
+  localStorage.setItem("todo", serialisedArray)
 }
 
 const handleDeleteTask = (task: Task) => {
   const deletedResult = todos.value.filter((todo) => todo.id != task.id)
   todos.value = deletedResult
+
+  const serialisedArray = JSON.stringify(todos.value)
+  localStorage.setItem("todo", serialisedArray)
 }
 </script>
 

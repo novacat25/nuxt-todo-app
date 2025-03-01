@@ -28,7 +28,7 @@ const initialDataFetch = () => {
 initialDataFetch()
 
 const generateTaskID = ():number => {
-  let TEMP_TASK_ID = 1
+  let TEMP_TASK_ID = 0
   todos.value.forEach((todo) => {
     TEMP_TASK_ID = Math.max(TEMP_TASK_ID, todo.id)
   })

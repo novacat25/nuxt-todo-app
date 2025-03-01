@@ -32,12 +32,12 @@ let NEW_ID_NUM = todos.value.length
 
   const handleInputTask = (value: string) => {
     NEW_ID_NUM += 1
-
+    const currentDate = new Date().toISOString().split('T')[0]
     const newItem = 
     {
       id: NEW_ID_NUM,
       task: value,
-      date: '2025-02-22',
+      date: currentDate,
       status: 'Not Finished'
     }
 

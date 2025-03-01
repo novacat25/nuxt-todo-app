@@ -27,11 +27,15 @@ import type { Task } from './types/task'
     status: 'Not Finished'
 },])
 
+//read at first, don't update dynamically
+let NEW_ID_NUM = todos.value.length
+
   const handleInputTask = (value: string) => {
-    const NEW_ID_NUM = todos.value.length
+    NEW_ID_NUM += 1
+
     const newItem = 
     {
-      id: NEW_ID_NUM + 1,
+      id: NEW_ID_NUM,
       task: value,
       date: '2025-02-22',
       status: 'Not Finished'
@@ -51,8 +55,8 @@ import type { Task } from './types/task'
         <template #header>
           <Header />
         </template>
-        <InputTask @add="handleInputTask" />
-        <TodoList :todos :mission />
+        <input-task @add="handleInputTask" />
+        <todo-list :todos :mission />
         <Footer />
     </UCard>
   </UContainer>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Task } from '~/types/task'
+const emits = defineEmits<{ (e: 'delete', task: Task): void }>()
 defineProps(["mission", "todos"])
 
 const columns = [{
@@ -25,7 +26,7 @@ const handleDoneClick = (task: Task) => {
 }
 
 const handleDeleteClick = (task: Task) => {
-    console.log(task)
+    emits('delete',task)
 }
 
 </script>

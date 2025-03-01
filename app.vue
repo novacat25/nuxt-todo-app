@@ -12,8 +12,6 @@ const mission = ref('')
 
 const todos = ref<Task[]>([])
 
-console.log("todos", todos.value)
-
 const initialDataFetch = () => {
   if(process.client) {
     const fetchFromLocalStorage = localStorage.getItem("todo")
@@ -21,6 +19,8 @@ const initialDataFetch = () => {
     if(fetchFromLocalStorage) {
       const fetchedToDo:Task[] = JSON.parse(fetchFromLocalStorage)
       todos.value = fetchedToDo
+    } else {
+      todos.value = []
     }
   }
 }
@@ -48,12 +48,16 @@ const handleInputTask = (value: string) => {
   localStorage.setItem("todo", serialisedArray)
 }
 
+const refreshTaskStatus = () => {
+  const serialisedArray = JSON.stringify(todos.value)
+  localStorage.setItem("todo", serialisedArray)
+}
+
 const handleDeleteTask = (task: Task) => {
   const deletedResult = todos.value.filter((todo) => todo.id != task.id)
   todos.value = deletedResult
 
-  const serialisedArray = JSON.stringify(todos.value)
-  localStorage.setItem("todo", serialisedArray)
+  refreshTaskStatus()
 }
 </script>
 
@@ -64,7 +68,7 @@ const handleDeleteTask = (task: Task) => {
         <Header />
       </template>
       <input-task @add="handleInputTask" />
-      <todo-list @delete="handleDeleteTask" :todos :mission />
+      <todo-list @update="refreshTaskStatus" @delete="handleDeleteTask" :todos :mission />
       <Footer />
     </UCard>
   </UContainer>

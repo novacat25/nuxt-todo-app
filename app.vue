@@ -13,21 +13,21 @@ const mission = ref('')
 const todos = ref<Task[]>([])
 
 const initialDataFetch = () => {
-  if(process.client) {
-    const fetchFromLocalStorage = localStorage.getItem("todo")
-    
-    if(fetchFromLocalStorage) {
-      const fetchedToDo:Task[] = JSON.parse(fetchFromLocalStorage)
-      todos.value = fetchedToDo
-    } else {
-      todos.value = []
-    }
+
+  const fetchFromLocalStorage = localStorage.getItem("todo")
+
+  if (fetchFromLocalStorage) {
+    const fetchedToDo: Task[] = JSON.parse(fetchFromLocalStorage)
+    todos.value = fetchedToDo
+  } else {
+    todos.value = []
   }
+
 }
 
 initialDataFetch()
 
-const generateTaskID = ():number => {
+const generateTaskID = (): number => {
   let TEMP_TASK_ID = 0
   todos.value.forEach((todo) => {
     TEMP_TASK_ID = Math.max(TEMP_TASK_ID, todo.id)
@@ -50,7 +50,7 @@ const handleInputTask = (value: string) => {
     date: currentDate,
     status: 'Not Finished'
   }
-  
+
   todos.value.push(newItem)
 
   refreshTaskStatus()
